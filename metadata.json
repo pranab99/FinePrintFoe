@@ -1,0 +1,6 @@
+{
+  "name": "FinePrintFoe",
+  "description": "Deterministic contract and fine-print risk analyzer benchmarking terms against fair-terms rules with transparent risk math.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

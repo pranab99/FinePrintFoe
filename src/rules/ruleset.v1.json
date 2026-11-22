@@ -1,0 +1,79 @@
+{
+  "version": "1.0.0",
+  "name": "Global Fair-Terms Baseline",
+  "base_score": 100,
+  "rules": [
+    {
+      "id": "R01_AUTO_RENEW_LOCK",
+      "category": "exit_lock_in",
+      "title": "Silent or Long-Window Auto-Renewal",
+      "fair_baseline": "Month-to-month renewal, or annual renewal with <= 15 days notice and an advance reminder.",
+      "flaw_trigger": "Auto-renews for >= 6 months with a cancellation cutoff > 30 days prior, or no advance reminder.",
+      "penalty": 20,
+      "role_multipliers": { "consumer": 1.2, "freelancer": 1.0, "tenant": 1.25, "business": 1.0 }
+    },
+    {
+      "id": "R02_ONE_SIDED_PRICE_HIKE",
+      "category": "money_traps",
+      "title": "Unilateral Price or Fee Increases",
+      "fair_baseline": "Price changes require >= 30 days written notice and a penalty-free right to cancel.",
+      "flaw_trigger": "Provider can raise fees or add charges at any time without advance notice or exit option.",
+      "penalty": 18,
+      "role_multipliers": { "consumer": 1.2, "freelancer": 1.0, "tenant": 1.3, "business": 1.0 }
+    },
+    {
+      "id": "R03_NO_REFUND_LOCKIN",
+      "category": "money_traps",
+      "title": "Forfeited Prepayments & Early Exit Penalties",
+      "fair_baseline": "Pro-rata refund if provider terminates without cause; reasonable termination fee capped at actual costs.",
+      "flaw_trigger": "All fees strictly non-refundable even if provider terminates, or steep early-termination penalty.",
+      "penalty": 18,
+      "role_multipliers": { "consumer": 1.15, "freelancer": 1.1, "tenant": 1.25, "business": 1.0 }
+    },
+    {
+      "id": "R04_ASYMMETRIC_LIABILITY",
+      "category": "liability_ip",
+      "title": "Asymmetric Liability Cap & Broad Indemnity",
+      "fair_baseline": "Mutual liability cap at >= 12 months of fees paid; indemnity limited to third-party IP/negligence.",
+      "flaw_trigger": "Provider caps liability at $0 or <= 1 month of fees while user faces uncapped indemnification.",
+      "penalty": 22,
+      "role_multipliers": { "consumer": 1.0, "freelancer": 1.3, "tenant": 1.1, "business": 1.25 }
+    },
+    {
+      "id": "R05_SWEEPING_IP_GRAB",
+      "category": "liability_ip",
+      "title": "Broad IP Transfer or Perpetual Content License",
+      "fair_baseline": "User keeps IP rights; provider gets only a limited license needed to operate the service.",
+      "flaw_trigger": "Perpetual, irrevocable, royalty-free license to exploit user content/work, or IP transfer before payment.",
+      "penalty": 22,
+      "role_multipliers": { "consumer": 1.0, "freelancer": 1.4, "tenant": 0.5, "business": 1.2 }
+    },
+    {
+      "id": "R06_SOLE_DISCRETION",
+      "category": "ambiguity_control",
+      "title": "Sweeping 'Sole Discretion' Powers",
+      "fair_baseline": "Suspension, penalties, or term changes tied to objective breaches and prior notice.",
+      "flaw_trigger": "Provider may suspend accounts, withhold payouts, or alter terms 'in its sole discretion' without notice.",
+      "penalty": 12,
+      "role_multipliers": { "consumer": 1.0, "freelancer": 1.25, "tenant": 1.15, "business": 1.0 }
+    },
+    {
+      "id": "R07_FORCED_ARBITRATION_VENUE",
+      "category": "dispute_rights",
+      "title": "Mandatory Arbitration & Distant Venue",
+      "fair_baseline": "Right to small-claims court or local jurisdiction; class-action rights preserved.",
+      "flaw_trigger": "Mandatory binding arbitration waiver or exclusive legal venue in a distant jurisdiction.",
+      "penalty": 12,
+      "role_multipliers": { "consumer": 1.2, "freelancer": 1.1, "tenant": 1.2, "business": 0.9 }
+    },
+    {
+      "id": "R08_MISSING_EXIT_OR_PAYMENT",
+      "category": "missing_protection",
+      "title": "Missing Cancellation Method or Payment Timeline",
+      "fair_baseline": "Clear self-serve cancellation steps or explicit net payment timeline (e.g., Net-15/Net-30).",
+      "flaw_trigger": "Document omits how to cancel recurring billing or omits payment deadlines/late-fee protections.",
+      "penalty": 15,
+      "role_multipliers": { "consumer": 1.1, "freelancer": 1.35, "tenant": 1.1, "business": 1.1 }
+    }
+  ]
+}
